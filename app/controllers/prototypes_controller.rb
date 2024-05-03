@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   before_action :set_prototype, only: :edit
-  before_action :move_to_index, except: [:new,:index, :create, :show]
+  before_action :move_to_index, except: [:index, :new, :create, :show, :update,:destroy]
 
   def index
     @prototypes = Prototype.all
@@ -50,7 +50,7 @@ class PrototypesController < ApplicationController
       redirect_to action: :index
     end
   end
- 
+
   def set_prototype
     @prototype = Prototype.find(params[:id])
   end
